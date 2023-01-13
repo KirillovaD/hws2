@@ -3,9 +3,11 @@
 }
 
 .input {
+    padding: 8px 24px;
     width: 372px;
     height: 36px;
     border-radius: 5px;
+    margin-bottom: 24px;
 
 }
 

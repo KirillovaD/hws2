@@ -1,23 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 .item {
+
+
 }
 
-.item:last-of-type {
+td:last-of-type {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+
 }
 
 .users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+
 }
 
 .buttonsContainer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /*justify-content: center;*/
+    gap: 20px;
 }
 
 .thead {
+    background: #E5E5E5;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 17px;
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #000000;
+
+
+}
+.thead tr{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /*gap: 178px;*/
+    justify-items: self-start;
 }
 
 .nameCol {
+
+
 }
 
+tbody tr{
+    display: grid;
+    padding-left: 17px;
+    padding-bottom: 32px;
+    grid-template-columns: 2fr 1fr;
+
+    justify-items: self-start;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+
+}
 .ageCol {
+
 }

@@ -1,28 +1,32 @@
 .button {
     padding: 5px 24px;
-    width: 167px;
-    height: 30px;
+    /*width: 167px;*/
+    /*height: 30px;*/
     border-radius: 3px;
     border: none;
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
     color: #FFFFFF;
+    background-color: #FFFFFF;
 }
+
 .default {
     background: #0066CC;
 }
+
 .red {
     background: #CC1439;
 }
+
 .secondary {
     border: 1px solid #0066CC;
     color: #0066CC;
 }
 
 .disabled {
-    width:133px;
+    width: 133px;
     background: #004D99;
     opacity: 0.5;
     color: #002E5C;
@@ -50,9 +54,11 @@
 .default:active {
     background: #0059B3;
 }
+
 .red:active {
     background: #B31232;
 }
+
 .secondary:active {
     background: #C9E5FF;
     border: 1px solid #0066CC;

@@ -17,7 +17,6 @@ function Clock() {
         }, 1000))
 
         setTimerId(+timerId)
-        setShow(!show)
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
     }

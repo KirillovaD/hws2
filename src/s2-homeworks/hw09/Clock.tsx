@@ -24,7 +24,6 @@ function Clock() {
     const stop = () => {
         clearInterval(timerId)
         setTimerId(undefined)
-        setShow(false)
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
 
     }

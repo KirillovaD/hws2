@@ -60,16 +60,8 @@ function Clock() {
 
             <div id={'hw9-more'}>
                 <div className={s.more} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                    {show ? (
-                        <>
-                            <span id={'hw9-date'}>{stringDate}</span>,{' '}
-                            <span id={'hw9-month'}>{stringMonth}</span>
-                        </>
-                    ) : (
-                        <>
-                            <br/>
-                        </>
-                    )}
+                            <span id={'hw9-date'}>{show && stringDate + ', '}</span>
+                            <span id={'hw9-month'}>{show && stringMonth}</span>
                 </div>
             </div>
 

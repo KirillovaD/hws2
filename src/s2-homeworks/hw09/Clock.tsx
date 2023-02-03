@@ -12,12 +12,12 @@ function Clock() {
     saveState<Date>('hw9-date', date)
 
     const start = () => {
-        let timerId=(setInterval(()=> {
+        let timerId = (setInterval(() => {
             setDate(new Date())
-        },1000))
+        }, 1000))
 
         setTimerId(+timerId)
-        setShow(true)
+        setShow(!show)
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
     }
@@ -42,15 +42,17 @@ function Clock() {
         minute: "numeric",
         second: "numeric"
     });  // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate =  date.toLocaleString("ru",{
+    const stringDate = date.toLocaleString("ru", {
         day: "numeric", month: "numeric", year: "numeric",
     }) // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-    const stringDay = date.toLocaleString("en",{
-        weekday: "long"}) // пишут студенты
-    const stringMonth = date.toLocaleString("en",{
-        month: "long"}) // пишут студенты*/
+    const stringDay = date.toLocaleString("en", {
+        weekday: "long"
+    }) // пишут студенты
+    const stringMonth = date.toLocaleString("en", {
+        month: "long"
+    }) // пишут студенты*/
 
     return (
         <div className={s.clock}>
@@ -64,12 +66,12 @@ function Clock() {
                 </span>
             </div>
 
-           <div id={'hw9-more'}>
+            <div id={'hw9-more'}>
                 <div className={s.more} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                     {show ? (
                         <>
-                            <span id={'hw9-month'}>{stringMonth}</span>,{' '}
-                            <span id={'hw9-date'}>{stringDate}</span>
+                            <span id={'hw9-date'}>{stringDate}</span>,{' '}
+                            <span id={'hw9-month'}>{stringMonth}</span>
                         </>
                     ) : (
                         <>

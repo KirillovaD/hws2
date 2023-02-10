@@ -1,6 +1,6 @@
 .button {
     padding: 5px 24px;
-    /*width: 167px;*/
+    width: fit-content;
     /*height: 30px;*/
     border-radius: 3px;
     border: none;
@@ -10,6 +10,7 @@
     line-height: 20px;
     color: #FFFFFF;
     background-color: #FFFFFF;
+
 }
 
 .default {

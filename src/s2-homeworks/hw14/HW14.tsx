@@ -39,7 +39,6 @@ const HW14 = () => {
                     // сохранить пришедшие данные
                     setLoading(false)
                     setTechs(res.data.techs)
-
                 }
             })
     }

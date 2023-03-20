@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import CircularProgress from '@mui/material/CircularProgress';
 
 /*
 * 1 - дописать SuperPagination
@@ -46,33 +47,37 @@ const HW15 = () => {
         getTechs(params)
             .then((res) => {
                 // делает студент
-
                 // сохранить пришедшие данные
-
                 //
+                setLoading(false)
+                if(res){
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
+
+
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
-        // setPage(
-        // setCount(
+        setPage(newPage)
+        setCount(newCount)
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery({page:newPage,count:newCount})
+        setSearchParams({page:newPage.toString(),count:newCount.toString()})
 
-        //
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery({page:page,count:count})
+        setSearchParams({page:page.toString(),count:count.toString()})
 
         //
     }
@@ -85,15 +90,21 @@ const HW15 = () => {
     }, [])
 
     const mappedTechs = techs.map(t => (
-        <div key={t.id} className={s.row}>
-            <div id={'hw15-tech-' + t.id} className={s.tech}>
-                {t.tech}
-            </div>
+        <>
+            <div key={t.id} className={s.row}>
+                <div id={'hw15-tech-' + t.id} className={s.tech}>
+                    {t.tech}
+                </div>
 
-            <div id={'hw15-developer-' + t.id} className={s.developer}>
-                {t.developer}
+                <div id={'hw15-developer-' + t.id} className={s.developer}>
+                    {t.developer}
+                </div>
+
             </div>
-        </div>
+            <hr/>
+        </>
+
+
     ))
 
     return (
@@ -101,7 +112,7 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {idLoading && <div id={'hw15-loading'} className={s.loading}><CircularProgress sx={{bgcolor:'conic-gradient(from 90deg at 50% 50%, rgba(255, 255, 255, 0) 0deg, #0066CC 360deg)'}}/> </div>}
 
                 <SuperPagination
                     page={page}
@@ -112,12 +123,12 @@ const HW15 = () => {
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
-                        tech
+                        Tech
                         <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                     </div>
 
                     <div className={s.developerHeader}>
-                        developer
+                        Developer
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>

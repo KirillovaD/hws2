@@ -65,7 +65,7 @@ const HW15 = () => {
         setPage(newPage)
         setCount(newCount)
 
-        sendQuery({page:newPage,count:newCount})
+        sendQuery({page:newPage,count:newCount,sort})
         setSearchParams({page:newPage.toString(),count:newCount.toString()})
 
     }
@@ -76,7 +76,7 @@ const HW15 = () => {
         setSort(newSort)
         setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        sendQuery({page:page,count:count})
+        sendQuery({page:page,count:count, sort:newSort})
         setSearchParams({page:page.toString(),count:count.toString()})
 
         //
@@ -84,10 +84,10 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({page: params.page, count: params.count, sort})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
-    }, [])
+    }, [searchParams,sort])
 
     const mappedTechs = techs.map(t => (
         <>
@@ -123,12 +123,12 @@ const HW15 = () => {
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
-                        Tech
+                        tech
                         <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                     </div>
 
                     <div className={s.developerHeader}>
-                        Developer
+                        developer
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>
